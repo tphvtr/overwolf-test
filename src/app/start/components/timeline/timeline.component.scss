@@ -1,0 +1,62 @@
+.timeline {
+  height: 30px;
+  border: 1px solid;
+  padding: 10px 0;
+  display: flex;
+  margin-bottom: 10px;
+  &-label {
+    position: absolute;
+  }
+  &-label.right {
+    right: -18px;
+  }
+  &-label.left {
+    left: -18px;
+  }
+  &-event {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    font-size: 10px;
+    color: #fff;
+    border: 1px solid;
+    border-radius: 50%;
+    position: absolute;
+    &-popup {
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      width: 60px;
+      z-index: 2;
+      border: 1px solid #000;
+      background-color: #ccc;
+      padding: 10px;
+      &:hover {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    &:hover &-popup {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &-event.assist {
+    background-color: blue;
+  }
+  &-event.kill {
+    background-color: green;
+  }
+  &-event.death {
+    background-color: #F04242;
+  }
+  &-slider {
+    display: block;
+    position: absolute;
+    height: 60px;
+    width: 3px;
+    background: #ccc;
+    border: 1px solid;
+  }
+}

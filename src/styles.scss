@@ -1,0 +1,24 @@
+// Common used css classes. In real project should be divided into files like _flex, _positioning etc.
+.row {
+  display: flex;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.container-between {
+  justify-content: space-between;
+}
+.align-items-center {
+  align-items: center;
+}
+.relative {
+  position: relative;
+}
+.pointer {
+  cursor: pointer;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

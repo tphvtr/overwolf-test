@@ -1,0 +1,35 @@
+<div class="timeline-container relative">
+  <div class="timeline row align-items-center">
+    <ng-container *ngFor="let event of events; let i = index">
+      <div class="timeline-event"
+           *ngIf="event?.child"
+           (click)="goToGameEvent(event.time)"
+           [ngClass]="event.type"
+           [style.width]="config.eventWidth + 'px'"
+           [style.left]="event.left + 'px'">
+        <span class="ellipsis">{{ 'E' + event.id }}</span>
+        <div class="timeline-event-popup column"
+             *ngIf="event?.child?.length"
+             [style.top]="'-' + (32 * event.child.length + 20) + 'px'">
+          <div class="row container-between align-items-center"
+               *ngFor="let child of event.child">
+             <div class="timeline-event pointer"
+                  [ngClass]="child.type"
+                  [style.width]="config.eventWidth + 'px'"
+                  style="position: relative"
+                  (click)="goToGameEvent(child.time); $event.stopPropagation()">
+                <span class="ellipsis">{{ 'E' + child?.id }}</span>
+             </div>
+             <span>{{ (child?.time * 1000 | date: 'mm:ss') }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <span class="timeline-slider"
+          [style.left]="sliderPosition + 'px'"></span>
+  </div>
+  <div class="row container-between">
+      <span class="timeline-label left">{{ element?.currentTime ? (element.currentTime * 1000 | date: 'mm:ss') : '00:00' }}</span>
+      <span class="timeline-label right">{{ element?.duration ? (element.duration * 1000 | date: 'mm:ss') : '00:00' }}</span>
+  </div>
+</div>

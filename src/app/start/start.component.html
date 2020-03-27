@@ -1,0 +1,9 @@
+<video [width]="vidConfig?.width"
+       height="auto"
+       [id]="vidConfig?.id"
+       style="display: block; margin: 0 auto 25px">
+  <source [src]="vidConfig?.url" type="video/mp4">
+</video>
+<div style="margin: 0 auto" [style.width]="vidConfig?.width + 'px'">
+  <app-timeline [config]="vidConfig" [events]="events"></app-timeline>
+</div>
